@@ -1,0 +1,44 @@
+﻿@using Indigo.ViewModels;
+@model CreatePostVM
+<div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_sidebar.html -->
+    <!-- partial -->
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Create Post</h4>
+
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label asp-for="Title">Title</label>
+                                    <input asp-for="Title" class="form-control" placeholder="Title">
+                                    <span class="text-danger" asp-validation-for="Title"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description">Description</label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description">
+                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                </div>
+                               <div class="form-group">
+                                    <label asp-for="Photo">Photo</label>
+                                    <input asp-for="Photo" class="form-control" placeholder="Description">
+                                    <span class="text-danger" asp-validation-for="Photo"></span>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary me-2">Create</button>
+                                <button asp-controller="author" asp-action="index" class="btn btn-light">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+</div>

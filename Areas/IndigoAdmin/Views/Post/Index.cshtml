@@ -1,0 +1,64 @@
+﻿@model List<Post> 
+@{
+    int count = 0;
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Authors</h4>
+            <a asp-controller="post" asp-action="create" class="btn btn-success">Create Post</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                No
+                            </th>
+                            <th>
+                                Image
+                            </th>
+                           
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Descriptiom
+                            </th>
+                            
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Post post in Model)
+                        {
+                            count++;
+                            <tr>
+
+                                <td>
+                                    @count
+                                </td>
+                                 <td>
+                                    <img src="~/images/@post.Image"/>
+                                </td>
+                                <td>
+                                    @post.Title
+                                </td>
+                                <td>
+                                    @post.Description
+                                </td>
+                                
+                                <td>
+                                    <a asp-controller="post" asp-action="update" asp-route-id="@post.Id" class="btn btn-warning"><i class="mdi mdi-pen"></i></a>
+                                    <a asp-controller="post" asp-action="delete" asp-route-id="@post.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                    <a asp-controller="post" asp-action="details" asp-route-id="@post.Id" class="btn btn-info"><i class="mdi mdi-open-in-new"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
